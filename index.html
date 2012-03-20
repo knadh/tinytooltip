@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
+<head>
+	<title>tinytooltip - a tiny tooltip plugin for jQuery</title>
+
+	<meta name="description" content="tinytooltip (900 bytes minified) is an extremely tiny, easy to use tooltip plugin for jQuery" />
+	<meta name="keywords" content="jquery tooltip, dynamic tooltip, custom tooltip, coloured tooltip, show tooltip, textbox tooltip, link tooltip, tooltips plugin" />
+
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+	<link rel="stylesheet" type="text/css" href="src/jquery.tinytooltip.css"/>
+
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="src/jquery.tinytooltip.min.js"></script>
+</head>
+<body>
+
+<div id="main">
+	<h1>tinytooltip plugin for jQuery</h1>
+	<p>
+		<a href="http://github.com/knadh/tinytooltip" class="r github">GitHub page</a> <a class="r zip" href="https://github.com/knadh/tinytooltip/zipball/master">Download ZIP</a>
+	</p>
+	An extremely tiny, easy to use tooltip plugin for jQuery. Roughly 900 bytes minified.
+	
+	<h3 class="title">Demonstration</h3>
+	<ul class="examples">
+		<li><a href="" class="example r">Hover here</a></li>
+		<li><a href="" class="example r">Hover here</a></li>
+		<li><input type="text" value="Click here and then click out" class="example" /></li>
+	</ul>
+	
+	<h3 class="title">Example</h3>
+<pre>
+// hover tooltip
+$('.example').tinytooltip({message: &quot;This is an example tooltip!&quot;});
+
+
+// on click tool tip
+$('.example').tinytooltip({
+	message: &quot;This is an example tooltip!&quot;,
+	hover: false
+});
+
+$('.example').click(function() {
+	$(this).trigger('showtooltip');	// show the tooltip
+}).blur(function() {
+	$(this).trigger('hidetooltip');	// hide the tooltip
+});
+</pre>
+
+To show tooltips at will, set the 'hover' option to false while initializing the tooltip on an element. 
+Then, to show the tooltip, use .trigger('showtooltip') and to hide, .trigger('hidetooltip')
+
+	<h3 class="title">Options</h3>
+	<table border="1">
+		<tbody>
+			<tr>
+				<td>message</td>
+				<td>
+					Tooltip message
+				</td>
+			</tr>
+			<tr>
+				<td>hover</td>
+				<td>
+					<strong><em>true</em> (default) or <em>false</em></strong><br />
+					Standard tooltip behaviour. Show tooltip on mouseover and hideon mouseout
+				</td>
+			</tr>
+			<tr>
+				<td>classes</td>
+				<td>
+					Addition classes (separated by space) to be added to the tooltip div
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+<script type="text/javascript">
+<!--
+
+$(document).ready(function() {
+	$('a.example').tinytooltip({message: "This is an example tooltip!"});
+	
+	$('input.example').tinytooltip({
+		message: "This is an example tooltip!",
+		hover: false
+	}).click(function() {
+		$(this).trigger('showtooltip');
+	}).blur(function() {
+		$(this).trigger('hidetooltip');
+	});
+});
+
+//-->
+</script>
+
+	<p><a href="http://kailashnadh.name" class="r">Kailash Nadh</a></p>
+
+</div><!-- main //-->
+
+</body>
+</html>
