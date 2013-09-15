@@ -21,13 +21,15 @@ Documentation and Demo: http://kailashnadh.name/code/tinytooltip
 
 ### Usage
 <pre>
-// hover tooltip
+// == hover tooltip with static text
 $('.example').tinytooltip({message: &quot;This is an example tooltip!&quot;});
 
 
-// on click tool tip
+// == on click tool tip with dynamic text
 $('.example').tinytooltip({
-	message: &quot;This is an example tooltip!&quot;,
+	message: function(tip) {
+		return $(this).val();
+	},
 	hover: false
 });
 
@@ -36,6 +38,7 @@ $('.example').click(function() {
 }).blur(function() {
 	$(this).trigger('hidetooltip');	// hide the tooltip
 });
+
 </pre>
 
 To show tooltips at will, set the 'hover' option to false while initializing the tooltip on an element. 
@@ -47,7 +50,7 @@ Then, to show the tooltip, use .trigger('showtooltip') and to hide, .trigger('hi
 		<tr>
 			<td>message</td>
 			<td>
-				Tooltip message
+				Tooltip message. Can be a string or a function()
 			</td>
 		</tr>
 		<tr>
