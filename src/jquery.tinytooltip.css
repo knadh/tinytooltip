@@ -1,13 +1,13 @@
 .tinytooltip {
 	display: block;
 	position: absolute;
-	z-index: 1;
+	z-index: 1000;
 }
 	.tinytooltip .arrow {
 		background: url('tinytooltip.png') no-repeat center center;
 		height: 10px;
 		display: block;
-		z-index: 3;
+		z-index: 3000;
 		position: relative;
 		margin-bottom: -1px;
 	}
@@ -21,6 +21,6 @@
 	font-size: 11px;
 	line-height: 11px;
 	text-align: center;
-	z-index: 2;
+	z-index: 2000;
 	position: relative;
 }

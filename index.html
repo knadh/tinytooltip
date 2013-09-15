@@ -26,18 +26,20 @@
 	<ul class="examples">
 		<li><a href="" class="example r">Hover here</a></li>
 		<li><a href="" class="example r">Hover here</a></li>
-		<li><input type="text" value="Click here and then click out" class="example" /></li>
+		<li><input type="text" value="Type something and click here" class="example" /></li>
 	</ul>
 	
 	<h3 class="title">Example</h3>
 <pre>
-// hover tooltip
+// == hover tooltip with static text
 $('.example').tinytooltip({message: &quot;This is an example tooltip!&quot;});
 
 
-// on click tool tip
+// == on click tool tip with dynamic text
 $('.example').tinytooltip({
-	message: &quot;This is an example tooltip!&quot;,
+	message: function(tip) {
+		return $(this).val();
+	},
 	hover: false
 });
 
@@ -57,7 +59,7 @@ Then, to show the tooltip, use .trigger('showtooltip') and to hide, .trigger('hi
 			<tr>
 				<td>message</td>
 				<td>
-					Tooltip message
+					Tooltip message. Can be a <em>string</em> or a <em>function()</em>
 				</td>
 			</tr>
 			<tr>
@@ -83,7 +85,10 @@ $(document).ready(function() {
 	$('a.example').tinytooltip({message: "This is an example tooltip!"});
 	
 	$('input.example').tinytooltip({
-		message: "This is an example tooltip!",
+		message: function() {
+			console.log(this);
+			return $(this).val();
+		},
 		hover: false
 	}).click(function() {
 		$(this).trigger('showtooltip');
