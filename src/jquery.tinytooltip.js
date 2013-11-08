@@ -27,6 +27,7 @@
 
 			me.bind( (options.hover ? 'mouseover ' : '') + 'showtooltip', function() {
 				if( me.data('tinyactive') ) {
+					clearTimeout(me.timer);
 					return;
 				}
 				me.data('tinyactive', 1);
