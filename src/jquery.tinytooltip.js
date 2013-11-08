@@ -26,10 +26,19 @@
 			var me = $(this);
 
 			me.bind( (options.hover ? 'mouseover ' : '') + 'showtooltip', function() {
+				if( me.data('tinyactive') ) {
+					return;
+				}
+				me.data('tinyactive', 1);
 				render(me);
 			});
 			me.bind( (options.hover ? 'mouseout ' : '') + 'hidetooltip', function() {
-				destroy(me);
+				clearTimeout(me.timer);
+
+				me.timer = setTimeout(function() {
+					me.data('tinyactive', '');
+					destroy(me);
+				}, 400);
 			});
 		});
 
